@@ -1,0 +1,235 @@
+.game-shell {
+  width: min(960px, 95vw);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 24px;
+  background: rgba(2, 6, 20, 0.9);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  color: #f4f7ff;
+}
+
+.scoreboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.score-card {
+  padding: 1rem 1.25rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(3, 9, 32, 0.6));
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.score-card.primary {
+  border-color: rgba(142, 226, 255, 0.6);
+  background: linear-gradient(135deg, rgba(142, 226, 255, 0.25), rgba(9, 20, 60, 0.85));
+  box-shadow: 0 10px 30px rgba(100, 217, 255, 0.25);
+}
+
+.score-card .label {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.score-card strong {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.canvas-wrapper {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 60px rgba(66, 135, 245, 0.18),
+    0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #020513;
+}
+
+.message-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(2, 6, 20, 0.82);
+  backdrop-filter: blur(6px);
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: #d5e8ff;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.controls button {
+  flex: 1;
+  min-width: 160px;
+  padding: 0.9rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #f4f7ff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.controls button.primary {
+  background: linear-gradient(120deg, #00d9ff, #0078ff);
+  border-color: transparent;
+  box-shadow: 0 15px 35px rgba(0, 136, 255, 0.35);
+}
+
+.controls button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.controls button:not(:disabled):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.tips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.95rem;
+  color: rgba(244, 247, 255, 0.85);
+}
+
+.tips li {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.settings-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.settings-label {
+  margin: 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.settings-header strong {
+  font-size: 1.25rem;
+}
+
+.speed-chip {
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(0, 195, 255, 0.2), rgba(0, 102, 255, 0.4));
+  border: 1px solid rgba(0, 195, 255, 0.4);
+  font-weight: 600;
+}
+
+.range-field {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: rgba(244, 247, 255, 0.8);
+}
+
+.range-field input[type='range'] {
+  flex: 1;
+  -webkit-appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #00d9ff, #0078ff);
+  outline: none;
+}
+
+.range-field input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+
+.range-field input[type='range']::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+
+.settings-hint {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(244, 247, 255, 0.7);
+}
+
+@media (max-width: 600px) {
+  .score-card strong {
+    font-size: 1.6rem;
+  }
+
+  .controls button {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .tips {
+    flex-direction: column;
+  }
+
+  .range-field {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
